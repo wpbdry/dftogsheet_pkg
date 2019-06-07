@@ -1,9 +1,9 @@
-# dfgsheet
+# dftogsheet
 A Python module for writing pandas DataFrame objects directly to Google Spreadsheets
 
-## Install dfgsheet
+## Install dftogsheet
 ```shell
-$ pip install dfgsheet
+$ pip install dftogsheet
 ```
 
 ## Setup
@@ -15,10 +15,10 @@ for the Google account you'd like to use.
 ## Simple Usage
 ```python
 import pandas as pd
-import dfgsheet
+import dftogsheet
 
 data_frame = pd.DataFrame()
-dfgsheet.write_to_sheet(data_frame, spreadsheet_id, sheet_name)
+dftogsheet.write_to_sheet(data_frame, spreadsheet_id, sheet_name)
 ```
 
 ### Parameters
