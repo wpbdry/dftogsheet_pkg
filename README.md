@@ -1,4 +1,5 @@
 # gsheets
+A Python module for writing pandas DataFrame objects directly to Google Spreadsheets
 
 ## Install gsheets
 ```shell
