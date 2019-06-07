@@ -1,4 +1,8 @@
-from gsheets import sheet
+name = "dftogsheet"
+
+from dftogsheet.auth import *
+from dftogsheet.config import scopes, value_input_option
+from dftogsheet.sheet import *
 
 
 def write_section_to_sheet(df_subsection, spreadsheet_id, sheet_name, offset=0):
@@ -13,3 +17,4 @@ def write_to_sheet(df, spreadsheet_id, sheet_name):
     write_section_to_sheet(df.columns, spreadsheet_id, sheet_name)
     # Body
     write_section_to_sheet(df.values, spreadsheet_id, sheet_name, offset=1)
+    

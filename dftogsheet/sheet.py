@@ -1,8 +1,8 @@
 import datetime as dt
 import pandas as pd
 
-from gsheets import auth
-from gsheets import config
+from dftogsheet import auth
+from dftogsheet import config
 
 
 class Sheet:

@@ -1,6 +1,11 @@
 env/*
 .vscode/*
 *__pycache__/*
+*/__pycache__/*
 
-token.pickle
-credentials.json
+secret/*
+*/secret/*
+
+build/*
+*.egg-info/*
+dist/*

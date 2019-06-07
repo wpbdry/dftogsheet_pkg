@@ -1,6 +1,6 @@
 import pandas as pd
 import webbrowser
-from gsheets import gsheets
+import dftogsheet
 
 
 class Test:
@@ -26,6 +26,11 @@ class Test:
     def run(self):
         print('Running test...')
         df = pd.DataFrame(data=self.data)
-        gsheets.write_to_sheet(df, self.spreadsheet_id, self.sheet)
+        dfgsheet.write_to_sheet(df, self.spreadsheet_id, self.sheet)
         webbrowser.open(self.spreadsheet_url)
         print('Test complete. Please check sucess in web browser.')
+
+
+def test():
+    test = Test()
+    test.run()
