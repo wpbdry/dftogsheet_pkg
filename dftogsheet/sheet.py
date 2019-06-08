@@ -2,7 +2,6 @@ import datetime as dt
 import pandas as pd
 
 from dftogsheet import auth
-from dftogsheet import config
 
 
 class Sheet:
@@ -43,11 +42,11 @@ class Sheet:
         self.range.set_str(sheet_name=sheet_name)
         return self.range
 
-    def write(self, spreadsheet_id):
+    def write(self, spreadsheet_id, config):
         write_value = {
             'values': self.value
         }
-        service = auth.Service(config.scopes)
+        service = auth.Service(config)
         gsheet = service.resource.spreadsheets()
 
         for i in range(0, 3):

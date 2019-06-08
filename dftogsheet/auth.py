@@ -4,11 +4,9 @@ from googleapiclient.discovery import build, Resource
 from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
 
-from dftogsheet import config
-
 
 class Service:
-    def __init__(self, scopes):
+    def __init__(self, config):
         # Copied from https://developers.google.com/sheets/api/quickstart/python
         creds = None
         # The file token.pickle stores the user's access and refresh tokens, and is
@@ -33,7 +31,7 @@ class Service:
             else:
                 flow = InstalledAppFlow.from_client_secrets_file(
                     config.credentials,
-                    scopes
+                    config.scopes
                 )
                 creds = flow.run_local_server()
                 
