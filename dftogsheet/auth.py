@@ -21,7 +21,12 @@ class Service:
         if not creds or not creds.valid:
             # If there is no credentials file, raise error before we try to log in.
             if not os.path.exists(config.credentials):
-                raise AuthError(f'Missing file: {config.credentials} See README.md for setup instructions')
+                error = f'Missing credentials file: project-root-folder/{config.credentials}'
+                help = 'Enable the Google Sheets API for your Google account and download your credentials file'
+                url = 'https://developers.google.com/sheets/api/quickstart/python'
+                raise AuthError(
+                    f'{error}. {help} at {url} .'
+                )
             
             if creds and creds.expired and creds.refresh_token:
                 creds.refresh(Request())
