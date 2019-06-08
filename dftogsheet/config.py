@@ -5,5 +5,5 @@ scopes = ['https://www.googleapis.com/auth/spreadsheets']
 value_input_option = 'RAW'
 
 # Paths to files
-token = 'secret/token.pickle'
-credentials = 'secret/credentials.json'
+token = '.dftogsheet/credentials/token.pickle'
+credentials = '.dftogsheet/credentials/credentials.json'

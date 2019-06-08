@@ -10,7 +10,7 @@ $ pip install dftogsheet
 1. Enable the
 [Google Sheets API](https://developers.google.com/sheets/api/quickstart/python)
 for the Google account you'd like to use.
-2. Download `credentials.json` into `project-root-folder/secret`.
+2. Download `credentials.json` into `project-root-folder/.dftogsheet/credentials/` folder.
 
 ## Simple Usage
 ```python
