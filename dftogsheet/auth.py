@@ -13,12 +13,16 @@ class Service:
         creds = None
         # The file token.pickle stores the user's access and refresh tokens, and is
         # created automatically when the authorization flow completes for the first time.
-        if os.path.exists(config.token):
+        if os.path.exists(config.token) and os.path.getsize(config.token) > 0:
             with open(config.token, 'rb') as token:
                 creds = pickle.load(token)
                 
         # If there are no (valid) credentials available, let the user log in.
         if not creds or not creds.valid:
+            # If there is no credentials file, raise error before we try to log in.
+            if not os.path.exists(config.credentials):
+                raise AuthError(f'Missing file: {config.credentials} See README.md for setup instructions')
+            
             if creds and creds.expired and creds.refresh_token:
                 creds.refresh(Request())
             else:
@@ -34,3 +38,10 @@ class Service:
 
         self.resource = build('sheets', 'v4', credentials=creds)
 
+
+class AuthError(Exception):
+    def __init__(self, message, errors=None):
+        super().__init__(message)
+
+        if errors:
+            self.errors = errors
