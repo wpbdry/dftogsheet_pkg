@@ -26,7 +26,7 @@ class Test:
     def run(self):
         print('Running test...')
         df = pd.DataFrame(data=self.data)
-        dfgsheet.write_to_sheet(df, self.spreadsheet_id, self.sheet)
+        dftogsheet.write_to_sheet(df, self.spreadsheet_id, self.sheet)
         webbrowser.open(self.spreadsheet_url)
         print('Test complete. Please check sucess in web browser.')
 
@@ -34,3 +34,6 @@ class Test:
 def test():
     test = Test()
     test.run()
+
+# Run test
+test()
