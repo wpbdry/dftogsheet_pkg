@@ -29,5 +29,24 @@ that is between `/d/` and `/edit`.
 - `sheet_name` is the name of the sheet within the Google spreadsheet.
 E.g. `Sheet1`.
 
+## Advanced usage
+With only the above function, this library pretty much only does one thing.
+But there is actually a lot more flexibility provided to you if you know what's going on.
+Please look into the two functions in `dftogsheets/__init__.py` to understand what is going on
+under the hood when you run the above code and to understand how you can use the `Sheet` class
+and its methods more powerfully. If you have any suggestions, you are always more than welcome
+to [contribute](#how-can-i-contribute) ;)
+
+### Changing scopes, valueInputOption, and location of credentials file
+What is the valueInputOption?
+Read [this page](https://developers.google.com/sheets/api/reference/rest/v4/ValueInputOption) \
+\
+These settings are actually controlled by the `Config` class. A new instance of the `Config` class
+with default values is created for you in `dftogsheet.write_section_to_sheet` so you don't have to
+think about it for the sample code above. However, it is possible to fully customize
+these configurations by creating your own `config` object for your project.
+Please look into `dftogheets/config.py` to understand how you can do that.
+
+
 ## What's new in version 0.0.5
 - Move location of credential files

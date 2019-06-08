@@ -4,11 +4,9 @@ from googleapiclient.discovery import build, Resource
 from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
 
-from dftogsheet import config
-
 
 class Service:
-    def __init__(self, scopes):
+    def __init__(self, config):
         # Copied from https://developers.google.com/sheets/api/quickstart/python
         creds = None
         # The file token.pickle stores the user's access and refresh tokens, and is
@@ -21,14 +19,19 @@ class Service:
         if not creds or not creds.valid:
             # If there is no credentials file, raise error before we try to log in.
             if not os.path.exists(config.credentials):
-                raise AuthError(f'Missing file: {config.credentials} See README.md for setup instructions')
+                error = f'Missing credentials file: project-root-folder/{config.credentials}'
+                help = 'Enable the Google Sheets API for your Google account and download your credentials file'
+                url = 'https://developers.google.com/sheets/api/quickstart/python'
+                raise AuthError(
+                    f'{error}. {help} at {url} .'
+                )
             
             if creds and creds.expired and creds.refresh_token:
                 creds.refresh(Request())
             else:
                 flow = InstalledAppFlow.from_client_secrets_file(
                     config.credentials,
-                    scopes
+                    config.scopes
                 )
                 creds = flow.run_local_server()
                 
