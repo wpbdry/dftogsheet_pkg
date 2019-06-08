@@ -28,7 +28,7 @@ class Test:
         df = pd.DataFrame(data=self.data)
         dftogsheet.write_to_sheet(df, self.spreadsheet_id, self.sheet)
         webbrowser.open(self.spreadsheet_url)
-        print('Test complete. Please check sucess in web browser.')
+        print('Test complete. Please check success in web browser.')
 
 
 def test():
