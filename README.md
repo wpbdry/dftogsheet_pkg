@@ -64,5 +64,5 @@ And if you feel like conforming to my workflow (which I try to stick to), that's
 - Only small "one commit" fixes done directly on `develop`.
 - Commit style: imperitive sentences in all lower case except proper nouns.
 - Merge into `develop` using pull requests and keeping the entire commmit history.
-- Merge into `master` squshing commits and keeping only version number in commit message.
-- At some point I would like to automatically publish every release to pushed to `master` on PyPy.
+- Merge into `production` squshing commits and keeping only version number in commit message.
+- At some point I would like to automatically publish every release to pushed to `production` on PyPy.
