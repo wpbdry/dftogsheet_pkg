@@ -8,8 +8,9 @@ $ pip install dftogsheet
 
 ## Setup
 1. Enable the
-[Google Sheets API](https://developers.google.com/sheets/api/quickstart/python)
-for the Google account you'd like to use.
+[Google Sheets API](https://developers.google.com/sheets/api/quickstart/python).
+2. Enter a name for your project. This is the name that will be displayed when your
+app asks for permission to edit your spreadsheets in Google Drive later.
 2. Download `credentials.json` into `project-root-folder/.dftogsheet/credentials/` folder.
 
 ## Simple Usage
