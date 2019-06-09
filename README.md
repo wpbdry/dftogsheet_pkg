@@ -1,5 +1,9 @@
 # dftogsheet
-A Python module for writing pandas DataFrame objects directly to Google Spreadsheets
+A Python module for writing pandas DataFrame objects directly to Google Spreadsheets \
+dftogsheet is maintained on
+[GitHub](https://github.com/wpbdry/dftogsheet_pkg)
+and
+[PyPI](https://pypi.org/project/dftogsheet/).
 
 ## Install dftogsheet
 ```shell
@@ -66,3 +70,5 @@ And if you feel like conforming to my workflow (which I try to stick to), that's
 - Merge into `develop` using pull requests and keeping the entire commmit history.
 - Merge into `production` squshing commits and keeping only version number in commit message.
 - At some point I would like to automatically publish every release to pushed to `production` on PyPy.
+- If you add new dependencies, don't use `pip freeze > requirements.txt`. Add new dependencies manually.
+Packages we install can install their own dependencies.
