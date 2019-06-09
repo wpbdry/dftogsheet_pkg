@@ -1,5 +1,9 @@
 # dftogsheet
-A Python module for writing pandas DataFrame objects directly to Google Spreadsheets
+A Python module for writing pandas DataFrame objects directly to Google Spreadsheets \
+dftogsheet is maintained on
+[GitHub](https://github.com/wpbdry/dftogsheet_pkg)
+and
+[PyPI](https://pypi.org/project/dftogsheet/).
 
 ## Install dftogsheet
 ```shell
@@ -13,7 +17,7 @@ $ pip install dftogsheet
 app asks for permission to edit your spreadsheets in Google Drive later.
 2. Download `credentials.json` into `project-root-folder/.dftogsheet/credentials/` folder.
 
-## Simple Usage
+## Simple usage
 ```python
 import pandas as pd
 import dftogsheet
@@ -48,6 +52,23 @@ think about it for the sample code above. However, it is possible to fully custo
 these configurations by creating your own `config` object for your project.
 Please look into `dftogheets/config.py` to understand how you can do that.
 
-
 ## What's new in version 0.0.5
 - Move location of credential files
+
+## How can I contribute?
+Thanks for asking! \
+I appreciate everyone who contributes, no matter how you choose to do it. \
+And if you feel like conforming to my workflow (which I try to stick to), that's great ;)
+
+### My workflow
+- Use [Gitflow Workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow).
+- Include GitHub issue number in `feature` and `hotfix` branch names.
+- If an issue doesn't exist on GitHub, create one.
+- Include branch name in every commit message, even on `develop`.
+- Only small "one commit" fixes done directly on `develop`.
+- Commit style: imperitive sentences in all lower case except proper nouns.
+- Merge into `develop` using pull requests and keeping the entire commmit history.
+- Merge into `production` squshing commits and keeping only version number in commit message.
+- At some point I would like to automatically publish every release to pushed to `production` on PyPy.
+- If you add new dependencies, don't use `pip freeze > requirements.txt`. Add new dependencies manually.
+Packages we install can install their own dependencies.
