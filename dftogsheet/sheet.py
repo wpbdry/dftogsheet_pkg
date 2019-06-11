@@ -67,15 +67,26 @@ class Sheet:
                 print(e)
 
     def overwrite(self, spreadsheet_id, config):
-        # Create large array and overwrite sheet
-        list = []
-        for i in range(0, 200000):
-            list.append('')
-        array = np.array(list).reshape(200,1000)
-        df = pd.DataFrame(data=array)
-        blank_sheet = Sheet(df.values)
-        blank_sheet.set_range(sheet_name=self.range.sheet_name)
-        blank_sheet.write(spreadsheet_id, config)
+        # Clear gsheet
+        service = auth.Service(config)
+        gsheet = service.resource.spreadsheets()
+        sheet_name = self.range.sheet_name
+
+        # Reference: https://developers.google.com/sheets/api/reference/rest/v4/spreadsheets.values/clear
+        for i in range(0, 3):
+            # This sometimes unexplainably fails, but works again on the second try.
+            # Therefore I am trying 3 times before exiting the script
+            # Issue details: https://github.com/googleapis/google-api-python-client/issues/632
+            try:
+                result = gsheet.values().clear(
+                    spreadsheetId=spreadsheet_id,
+                    range=f'{sheet_name}!A1:AAA100000',
+                    body={}
+                ).execute()
+                print('{0} cells updated.'.format(result.get('updatedCells')))
+                break
+            except Exception as e:
+                print(e)
         # Call normal write method
         self.write(spreadsheet_id, config)
 
