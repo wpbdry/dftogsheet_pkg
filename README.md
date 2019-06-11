@@ -52,7 +52,7 @@ think about it for the sample code above. However, it is possible to fully custo
 these configurations by creating your own `config` object for your project.
 Please look into `dftogheets/config.py` to understand how you can do that.
 
-## What's new in version 0.0.6
+## What's new in version 0.0.7
 - Add `Sheet.overwrite()` method.
 - Include this method by default.
 
