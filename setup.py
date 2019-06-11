@@ -8,7 +8,7 @@ with open("requirements.txt", "r") as rf:
 
 setuptools.setup(
     name="dftogsheet",
-    version="0.0.6",
+    version="0.0.7",
     author="William Dry",
     author_email="wpbdry@gmail.com",
     description="A Python module for writing pandas DataFrame objects directly to Google Spreadsheets",
