@@ -73,6 +73,7 @@ class Sheet:
         gsheet = service.resource.spreadsheets()
         sheet_name = self.range.sheet_name
 
+        # Reference: https://developers.google.com/sheets/api/reference/rest/v4/spreadsheets.values/clear
         for i in range(0, 3):
             # This sometimes unexplainably fails, but works again on the second try.
             # Therefore I am trying 3 times before exiting the script
