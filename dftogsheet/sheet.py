@@ -1,5 +1,6 @@
 import datetime as dt
 import pandas as pd
+import numpy as np
 
 from dftogsheet import auth
 
@@ -65,12 +66,26 @@ class Sheet:
             except Exception as e:
                 print(e)
 
+    def overwrite(self, spreadsheet_id, config):
+        # Create large array and overwrite sheet
+        list = []
+        for i in range(0, 200000):
+            list.append('')
+        array = np.array(list).reshape(200,1000)
+        df = pd.DataFrame(data=array)
+        blank_sheet = Sheet(df.values)
+        blank_sheet.set_range(sheet_name=self.range.sheet_name)
+        blank_sheet.write(spreadsheet_id, config)
+        # Call normal write method
+        self.write(spreadsheet_id, config)
+
 
 class Range:
     first_row = 1
     last_row = 1
     first_col = 1
     last_col = 1
+    sheet_name = None
     
     def __init__(self, sheet_value, offset):
         if not isinstance(offset, int):
@@ -89,6 +104,7 @@ class Range:
     def set_str(self, sheet_name=False):
         string = ''
         if sheet_name:
+            self.sheet_name = sheet_name
             string = f'{sheet_name}!'
         fc = self.first_col.to_alph()
         lc = self.last_col.to_alph()

@@ -5,17 +5,18 @@ from dftogsheet.config import Config
 from dftogsheet.sheet import *
 
 
-def write_section_to_sheet(df_subsection, spreadsheet_id, sheet_name, offset=0):
-    section = sheet.Sheet(df_subsection)
-    section.unsupported_datatypes_tostr()
-    section.set_range(sheet_name=sheet_name, offset=offset)
-    config = Config()
-    section.write(spreadsheet_id, config)
-
-
 def write_to_sheet(df, spreadsheet_id, sheet_name):
+    config = Config()
+
     # Headers
-    write_section_to_sheet(df.columns, spreadsheet_id, sheet_name)
+    headers = sheet.Sheet(df.columns)
+    headers.unsupported_datatypes_tostr()
+    headers.set_range(sheet_name=sheet_name)
+    headers.overwrite(spreadsheet_id, config)
+
     # Body
-    write_section_to_sheet(df.values, spreadsheet_id, sheet_name, offset=1)
+    body = sheet.Sheet(df.values)
+    body.unsupported_datatypes_tostr()
+    body.set_range(sheet_name=sheet_name, offset=1)
+    body.write(spreadsheet_id, config)
     
